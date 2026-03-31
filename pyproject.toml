@@ -1,0 +1,38 @@
+[project]
+name = "projet-filrouge-python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.135.2",
+]
+
+[tool.ruff]
+line-length = 88
+
+#Le outil à lancer avec Ruff
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # isort
+    "I",
+]
+
+#Dans le fichier .toml :
+[tool.pytest.ini_options]
+addopts = "--cov=. --cov-fail-under=80"
+
+#Les dépendances (ont été ajouté avec les commandes ci-dessous
+#uv add fastapi
+#uv add --dev pytest pytest-cov mypy ruff
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.8",
+]
