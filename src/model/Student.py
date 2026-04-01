@@ -1,12 +1,12 @@
-from model.User import User
+from model.Users import Users
 
 
-class Student(User):
+class Student(Users):
     def __init__(
         self,
         user_id: int,
         name: str,
-        validated_skill_id: list,
+        validated_skill_id: list[int],
     ):
         super().__init__(user_id, name)
         self.__validated_skill_id = validated_skill_id
@@ -17,7 +17,7 @@ class Student(User):
                 return True
         return False
 
-    def add_validated_skill(self, skill_id) -> None:
+    def add_validated_skill(self, skill_id: int) -> None:
         for skill in self.__validated_skill_id:
             if skill == skill_id:
                 return None
